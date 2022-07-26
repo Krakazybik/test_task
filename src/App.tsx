@@ -1,26 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Article } from './widgets/article';
+import { Menu } from './widgets/menu';
+import styles from './styles.module.scss';
+import { Button } from './shared/ui/button';
+import { useEvent, useList } from 'effector-react';
+import { articlesModel } from './entites/articles';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    const articles = useList(articlesModel.$articles, (item: any) => (
+        <Article header={item.title} preview={item.title} />
+    ));
+    const loadArticles = useEvent(articlesModel.loadArticles);
+
+    return (
+        <div className={styles.Layout}>
+            <div className={styles.ArticlesWrapper}>
+                <Button onClick={loadArticles}>Загрузить статьи</Button>
+                <div className={styles.Articles}>{articles}</div>
+            </div>
+            <Menu />
+        </div>
+    );
+};
 
 export default App;

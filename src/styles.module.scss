@@ -1,0 +1,19 @@
+.Layout {
+  overflow: hidden;
+  display: flex;
+}
+
+
+.ArticlesWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 2rem;
+}
+
+.Articles {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}

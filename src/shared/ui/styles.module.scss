@@ -1,0 +1,20 @@
+.Button {
+  padding: 16px 24px;
+  width: max-content;
+  background-color: #282c34;
+  color: antiquewhite;
+  border: 1px solid #282c34;
+  border-radius: 4px;
+  box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.3);
+  transition: transform 0.1s ease-in;
+  user-select: none;
+
+
+  &:hover {
+    border-color: black;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
